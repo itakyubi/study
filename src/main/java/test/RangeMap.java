@@ -25,5 +25,10 @@ public class RangeMap {
         rangeMap.put(Range.closed(20, 20), 4);
         rangeMap.remove(Range.closed(5, 11));
         System.out.println(rangeMap);
+
+        rangeMap.remove(Range.closed(4,13));
+        System.out.println(rangeMap);
+
+        System.out.println(rangeMap.subRangeMap(Range.closed(4,15)));
     }
 }
