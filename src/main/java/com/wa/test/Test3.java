@@ -16,5 +16,10 @@ public class Test3 {
         SimpleDateFormat df = new SimpleDateFormat("yyyyMMddHHmmss");//设置日期格式
         System.out.println(df.format(new Date()));// new Date()为获取当前系统时间
         System.out.println(LocalDate.now());
+
+        char c = 'a';
+        int i = 1;
+        char cc = (char) (c+i);
+        System.out.println(cc);
     }
 }
