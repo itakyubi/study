@@ -4,10 +4,12 @@ import java.util.Vector;
 
 /**
  * VectorTest
- *
+ * <p>
  * Vector类并不是线程安全的
  * Vector类中的方法加了synchronized关键字，但是其只能保证同一时间只有一个线程使用该方法
  * 对于多个线程使用多个方法时无法保证线程安全
+ * 本例中printThread先调用size()方法，后调用get()方法，由于两个方法之间并没有加锁，所以出现异常
+ * 这种异常类似于数据库中的幻读
  *
  * @author: wuao
  * @time: 2020/11/29 15:29
