@@ -1,4 +1,4 @@
-package com.wa.test;
+package com.wa.source.code;
 
 import java.util.Vector;
 
