@@ -1,4 +1,4 @@
-package com.wa.test;
+package com.wa.demo.k8s;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
