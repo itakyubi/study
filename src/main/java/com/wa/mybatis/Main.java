@@ -1,22 +1,7 @@
 package com.wa.mybatis;
 
-import org.apache.ibatis.cache.impl.PerpetualCache;
-import org.apache.ibatis.cursor.Cursor;
-import org.apache.ibatis.executor.BaseExecutor;
-import org.apache.ibatis.executor.BatchExecutor;
-import org.apache.ibatis.executor.BatchResult;
-import org.apache.ibatis.executor.Executor;
-import org.apache.ibatis.mapping.BoundSql;
-import org.apache.ibatis.mapping.MappedStatement;
-import org.apache.ibatis.session.Configuration;
-import org.apache.ibatis.session.ResultHandler;
-import org.apache.ibatis.session.RowBounds;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.defaults.DefaultSqlSession;
-import org.checkerframework.checker.units.qual.C;
-
-import java.sql.SQLException;
-import java.util.List;
 
 /**
  * Main
@@ -26,11 +11,11 @@ import java.util.List;
  */
 public class Main {
     public static void main(String[] args) {
-        Configuration configuration = new Configuration();
+        /*Configuration configuration = new Configuration();
         Executor executor = new BaseExecutor();
 
         SqlSession sqlSession = new DefaultSqlSession(configuration, executor);
-        PerpetualCache cache = new PerpetualCache();
+        PerpetualCache cache = new PerpetualCache();*/
 
     }
 
