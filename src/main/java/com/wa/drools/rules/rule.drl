@@ -1,0 +1,10 @@
+package com.wa.drools.rules
+import com.wa.drools.model.Person
+dialect "java"
+global java.util.Map output
+rule "man"
+    when
+        $p : Person(age < 10)
+    then
+        output.put(drools.getRule().getName(), $p);
+end
