@@ -18,6 +18,14 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
+            <!--如果本地跑flink，需要把ch.qos.logback排除掉
+            具体原因未知，但是可能是因为flink没有绑定数据源导致springboot认为flink已经停止-->
+            <!--<exclusions>
+                <exclusion>
+                    <groupId>ch.qos.logback</groupId>
+                    <artifactId>logback-classic</artifactId>
+                </exclusion>
+            </exclusions>-->
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -108,6 +116,8 @@
             <artifactId>mybatis</artifactId>
             <version>3.4.5</version>
         </dependency>
+
+        <!-- drools -->
         <!-- https://mvnrepository.com/artifact/org.drools/drools-core -->
         <dependency>
             <groupId>org.drools</groupId>
@@ -125,6 +135,31 @@
             <artifactId>drools-mvel</artifactId>
             <version>7.62.0.Final</version>
         </dependency>
+        <!-- drools -->
+
+        <!-- flink -->
+        <dependency>
+            <groupId>org.apache.flink</groupId>
+            <artifactId>flink-java</artifactId>
+            <version>1.13.6</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.flink</groupId>
+            <artifactId>flink-streaming-java_2.12</artifactId>
+            <version>1.13.6</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.flink</groupId>
+            <artifactId>flink-clients_2.12</artifactId>
+            <version>1.13.6</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.flink</groupId>
+            <artifactId>flink-connector-kafka_2.12</artifactId>
+            <version>1.13.6</version>
+        </dependency>
+        <!-- flink -->
+
     </dependencies>
 
 </project>
