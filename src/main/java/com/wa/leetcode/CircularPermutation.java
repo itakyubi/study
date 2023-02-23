@@ -43,6 +43,11 @@ public class CircularPermutation {
     }
 
     // 公式法构造格雷码
+    // https://blog.csdn.net/yellow_hill/article/details/118694574
+    // 1、改变最右边位置的值，即0变1、1变0
+    // 2、改变右起第一个为1的左边一位的值
+    // 重复第一、第二步
+    // 示例：000 -> 001 -> 011 -> 010 -> 110 -> 111 -> 101 -> 100
     private static List<Integer> circularPermutation(int n, int start) {
         List<Integer> res = new ArrayList<>();
         for (int i = 0; i < 1 << n; i++) {
