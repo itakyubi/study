@@ -5,6 +5,7 @@ import com.influxdb.client.domain.WritePrecision;
 import com.influxdb.client.write.Point;
 import com.influxdb.query.FluxRecord;
 import com.influxdb.query.FluxTable;
+import com.influxdb.query.dsl.Flux;
 import com.wa.influxdb.configuration.InfluxConfiguration;
 import com.wa.influxdb.service.InfluxService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -40,11 +41,11 @@ public class InfluxServiceImpl implements InfluxService {
 
     @Override
     public void get() {
-        /*String flux = Flux
+        String flux = Flux
                 .from(influxConfiguration.getBucket())
-                .range(new Instant())
-                .toString();*/
-        String flux = "from(bucket:\"wa\") |> range(start: 0)";
+                .range(Instant.ofEpochSecond(0))
+                .toString();
+        /*String flux = "from(bucket:\"wa\") |> range(start: 0)";*/
         List<FluxTable> list = influxDBClient.getQueryApi().query(flux);
 
         for (FluxTable fluxTable : list) {
