@@ -29,7 +29,8 @@ public class ProductService {
 
     private Lock lock = new ReentrantLock(true);
 
-    @Transactional
+    // 这种写法是有问题的，lock会在事务提交前释放，导致超卖
+    /*@Transactional
     public void sell() {
         try {
             lock.lock();
@@ -52,6 +53,37 @@ public class ProductService {
         } finally {
             System.out.println(Thread.currentThread().getName() + ":释放锁");
             lock.unlock();
+        }
+    }*/
+
+
+    public void sell() {
+        try {
+            lock.lock();
+            System.out.println(Thread.currentThread().getName() + ":抢到锁啦，进入方法");
+            sellProduct();
+        } finally {
+            System.out.println(Thread.currentThread().getName() + ":释放锁");
+            lock.unlock();
+        }
+    }
+
+    @Transactional
+    public void sellProduct() {
+        Product product = productMapper.getRemain(1);
+        int remain = product.getRemain();
+        System.out.println(Thread.currentThread().getName() + ":当前库存=" + remain);
+        if (remain > 0) {
+            Product newProduct = new Product(1, product.getName(), remain - 1);
+            productMapper.updateRemain(newProduct);
+
+            Order order = new Order();
+            order.setUserName(Thread.currentThread().getName());
+            order.setProductName(newProduct.getName());
+            orderMapper.createOrder(order);
+            System.out.println(Thread.currentThread().getName() + ":减库存，创建订单完成");
+        } else {
+            System.out.println(Thread.currentThread().getName() + ":没有库存了");
         }
     }
 }
