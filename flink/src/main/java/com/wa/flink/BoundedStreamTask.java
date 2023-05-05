@@ -9,6 +9,8 @@ import org.apache.flink.streaming.api.datastream.KeyedStream;
 import org.apache.flink.streaming.api.datastream.SingleOutputStreamOperator;
 import org.apache.flink.streaming.api.environment.StreamExecutionEnvironment;
 
+import java.io.File;
+
 /**
  * BoundedStreamTask
  * 2023/2/16 1:55 下午
@@ -17,11 +19,13 @@ import org.apache.flink.streaming.api.environment.StreamExecutionEnvironment;
  */
 public class BoundedStreamTask {
     public static void main(String[] args) throws Exception {
+        System.out.println(new File("").getCanonicalPath());
+
         // 创建流式执行环境
         StreamExecutionEnvironment env = StreamExecutionEnvironment.getExecutionEnvironment();
 
         // 模拟有界流数据，从文件读取
-        DataStreamSource<String> source = env.readTextFile("src/main/java/com/wa/flink/input/words.txt");
+        DataStreamSource<String> source = env.readTextFile("flink/src/main/java/com/wa/flink/input/words.txt");
 
         // 转换计算
         SingleOutputStreamOperator<Tuple2<String, Long>> wordTuple = source
