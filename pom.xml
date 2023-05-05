@@ -15,6 +15,9 @@
         <module>flink</module>
         <module>drools</module>
         <module>spring</module>
+        <module>event-center</module>
+        <module>alarm-center</module>
+        <module>jsonata</module>
     </modules>
 
     <parent>
