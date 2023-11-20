@@ -1,6 +1,6 @@
 package com.wa.leetcode;
 
-import javafx.util.Pair;
+import cn.hutool.core.lang.Pair;
 
 import java.util.Arrays;
 import java.util.HashSet;

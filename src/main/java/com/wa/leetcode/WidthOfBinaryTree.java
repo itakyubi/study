@@ -1,7 +1,7 @@
 package com.wa.leetcode;
 
 import com.wa.model.TreeNode;
-import javafx.util.Pair;
+import cn.hutool.core.lang.Pair;
 
 import java.util.LinkedList;
 import java.util.Queue;

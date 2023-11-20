@@ -1,7 +1,5 @@
 package com.wa.interview.saima;
 
-import javafx.util.Pair;
-
 import java.util.ArrayList;
 import java.util.Scanner;
 
